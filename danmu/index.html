@@ -10,6 +10,7 @@
     <meta content="email=no" name="format-detection">
     <title>标题</title>
     <link rel="stylesheet" href="css/danmu.css">
+    <script src="js/rem.js"></script>
 
 </head>
 
@@ -24,12 +25,12 @@
                     <li data-blz-danmu="1"></li>
                 </ul>
             </section>
-            <video src="level5.mp4" width="100%" loop autoplay poster="images/video_bg_02.png"></video>
+            <video src="level5.mp4" width="100%" webkit-playsinline="true" webkit-playsinline="true" loop autoplay poster="images/video_bg_02.png"></video>
             <div class="pinglunqu">
                 <form action="">
                     <div class="head-img"></div>
-                    <input type="text" class="txt-danmu" placeholder="一起为新人填充弹幕祝福吧^_^">
-                    <div class="send-danmu">发弹幕</div>
+                    <input type="text" class="txt-danmu" id="txt-danmu" placeholder="一起为新人填充弹幕祝福吧^_^">
+                    <div class="send-danmu" id="send-danmu">发弹幕</div>
                 </form>
             </div>
             <nav class="nav">
@@ -69,76 +70,77 @@
         </div>
     </div>
 
-    <script src="js/rem.js"></script>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/zepto.js"></script>
     <script>
         + function($, document) {
             /*事先从服务器获取数据，以备用*/
             var $json = [{
-                name: '哈士奇',
-                url: 'images/1.jpg',
-                words: '祝：早生贵子，白头偕老'
-            }, {
-                name: '哈士奇',
-                url: 'images/2.jpg',
-                words: '执子之手，方知子丑，泪流满面，子不走我走'
-            }, {
-                name: '哈士奇',
-                url: 'images/3.jpg',
-                words: '爽快的交出存折的密码，顺利的收藏好初恋的情书，用结婚的壮举给所有，单身汉带来最大的鼓舞！'
-            }, {
-                name: '哈士奇',
-                url: 'images/4.jpg',
-                words: '让我们热情高涨，满怀期待，强烈祝贺，一个，好男人的幸福生活，从此——盛大开幕'
-            }, {
-                name: '哈士奇',
-                url: 'images/5.jpg',
-                words: '男的最后想通了，女的终于看开了。珠联壁合洞房春暖，花好月圆鱼水情深。'
-            }, {
-                name: '哈士奇',
-                url: 'images/6.jpg',
-                words: '一纸老虎，一米老鼠，点花烛，一起住;一个成了丈夫，一个未来当母，噜噜噜，真幸福!祝小两口结婚快乐乎!'
-            }, {
-                name: '哈士奇',
-                url: 'images/7.jpg',
-                words: '男的最后想通了，女的终于看开了。珠联壁合洞房春暖，花好月圆鱼水情深。'
-            }, {
-                name: '哈士奇',
-                url: 'images/8.jpg',
-                words: '老娘法眼一开就知道你是我的菜了，哈哈哈哈哈'
-            }, {
-                name: '哈士奇',
-                url: 'images/9.jpg',
-                words: '树上的鸟儿成双对,绿水青山带笑颜'
-            }, {
-                name: '哈士奇',
-                url: 'images/10.jpg',
-                words: '愿快乐的歌声永远伴你们同行,愿你们婚后的生活洋溢着喜悦与欢快,永浴于无穷的快乐年华'
-            }, {
-                name: '哈士奇',
-                url: 'images/11.jpg',
-                words: '千年的缘分今日牵手,百年的祈愿此刻白首。'
-            }, {
-                name: '哈士奇',
-                url: 'images/12.jpg',
-                words: '阳光照,小鸟叫,花含笑,喜事到。天作美,珠联璧合;人和美,永沐爱河。'
-            }, {
-                name: '哈士奇',
-                url: 'images/13.jpg',
-                words: '在你们大喜的日子里,送上一份祝福:来年喜笑得贵子,夫妻恩爱百年期'
-            }];
+                    name: '哈士奇',
+                    url: 'images/1.jpg',
+                    words: '祝：早生贵子，白头偕老'
+                }, {
+                    name: '哈士奇',
+                    url: 'images/2.jpg',
+                    words: '执子之手，方知子丑，泪流满面，子不走我走'
+                }
+                /*, {
+                                name: '哈士奇',
+                                url: 'images/3.jpg',
+                                words: '爽快的交出存折的密码，顺利的收藏好初恋的情书，用结婚的壮举给所有，单身汉带来最大的鼓舞！'
+                            }, {
+                                name: '哈士奇',
+                                url: 'images/4.jpg',
+                                words: '让我们热情高涨，满怀期待，强烈祝贺，一个，好男人的幸福生活，从此——盛大开幕'
+                            }, {
+                                name: '哈士奇',
+                                url: 'images/5.jpg',
+                                words: '男的最后想通了，女的终于看开了。珠联壁合洞房春暖，花好月圆鱼水情深。'
+                            }, {
+                                name: '哈士奇',
+                                url: 'images/6.jpg',
+                                words: '一纸老虎，一米老鼠，点花烛，一起住;一个成了丈夫，一个未来当母，噜噜噜，真幸福!祝小两口结婚快乐乎!'
+                            }, {
+                                name: '哈士奇',
+                                url: 'images/7.jpg',
+                                words: '男的最后想通了，女的终于看开了。珠联壁合洞房春暖，花好月圆鱼水情深。'
+                            }, {
+                                name: '哈士奇',
+                                url: 'images/8.jpg',
+                                words: '老娘法眼一开就知道你是我的菜了，哈哈哈哈哈'
+                            }, {
+                                name: '哈士奇',
+                                url: 'images/9.jpg',
+                                words: '树上的鸟儿成双对,绿水青山带笑颜'
+                            }, {
+                                name: '哈士奇',
+                                url: 'images/10.jpg',
+                                words: '愿快乐的歌声永远伴你们同行,愿你们婚后的生活洋溢着喜悦与欢快,永浴于无穷的快乐年华'
+                            }, {
+                                name: '哈士奇',
+                                url: 'images/11.jpg',
+                                words: '千年的缘分今日牵手,百年的祈愿此刻白首。'
+                            }, {
+                                name: '哈士奇',
+                                url: 'images/12.jpg',
+                                words: '阳光照,小鸟叫,花含笑,喜事到。天作美,珠联璧合;人和美,永沐爱河。'
+                            }, {
+                                name: '哈士奇',
+                                url: 'images/13.jpg',
+                                words: '在你们大喜的日子里,送上一份祝福:来年喜笑得贵子,夫妻恩爱百年期'
+                            }*/
+            ];
 
             var tip = {
                     w: $('.blz-danmu').width(),
                     index: 0,
-                    time: 12,
+                    newIndex: 0,
+                    time: 8,
                     clear: null
                 }
                 //合并json数据,并初始化tip.index值
             function mergeJson(news, old) {
-                $json = news.concat(old)
-                tip.index = 0
+                $json.splice(tip.newIndex, 0, news);
             }
 
             /*为每个弹幕盒子分配一条消息*/
@@ -168,18 +170,24 @@
                 return obj
             }
 
+
+
             //弹幕程序
             function danmu($danmu, data) {
-                tip.index >= $json.length ? tip.index = 0 : null;
-                var $target = assignMessage($danmu, data[tip.index]);
-                var obj = getWT(data[tip.index++], 40, 360)
-                addAnimate($target, {
-                    'transform': 'translate(' + (-tip.w - obj.w) + 'px)',
-                    'transition-duration': obj.t - 8 + 's'
-                }, (obj.t - 8) * 500);
-                setTimeout(function() {
-                    danmu($danmu, data)
-                }, 500 * (obj.t - 8) * obj.w / (tip.w + obj.w))
+                if ($json.length != 0) {
+                    tip.index >= $json.length ? tip.index = 0 : null;
+                    tip.newIndex = tip.index;
+                    var $target = assignMessage($danmu, data[tip.index]);
+                    var obj = getWT(data[tip.index++], 30, 100)
+                    addAnimate($target, {
+                        '-webkit-transform': 'translate(' + (-tip.w - obj.w) + 'px)',
+                        '-webkit-transition-duration': obj.t - 6 + 's'
+                    }, (obj.t - 6) * 1000);
+                    setTimeout(function() {
+                        danmu($danmu, data)
+                    }, 1000 * (obj.t - 6) * obj.w / (tip.w + obj.w))
+                }
+
             }
             //执行你的程序
             $('[data-blz-danmu]').each(function(index, element) {
@@ -200,7 +208,24 @@
                 $("#last-section").show();
             })
 
-        }(Zepto || jQuery, document);
+            //发送弹幕
+            $("#send-danmu").click(function() {
+                var oTxt = $("#txt-danmu").val();
+                console.log(oTxt)
+                var newWord = {
+                    name: '客户',
+                    url: 'images/1.jpg',
+                    words: oTxt
+                };
+                if ($("#txt-danmu").val() != "") {
+                    mergeJson(newWord, $json);
+                }
+
+                console.log($json)
+                $("#txt-danmu").val("")
+            })
+
+        }(window.Zepto || window.jQuery, document);
 
     </script>
 </body>
