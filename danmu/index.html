@@ -39,6 +39,44 @@
             </nav>
             <div class="nav-section">
                 <section id="first-section">
+                	<div class="blz-wisher">张国立 蒋雯丽 送上</div>
+                	<div class="message blz-message">
+                        <div class="message-left"><img src="images/fanbingbing_03.png" alt=""></div>
+                        <div class="message-right">
+                            <h2>截止当前 蒋书仁 与 董琳娜 可获得 9 万元</h2>
+                            <p>为两位新人妹购买1份金婚保险，两位新人50年金婚时即可获得1万元现金，最高可累加至100万元</p>
+                        </div>
+                    </div>
+                    <div class="blz-photo">
+                    	<div class="blz-photo-wisher">
+                        </div>
+                        <ul class="blz-photo-wall box clear">
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                       </ul>
+                   </div>
                 </section>
                 <section id="last-section">
                     <div class="message">
@@ -227,6 +265,106 @@
 
         }(window.Zepto || window.jQuery, document);
 
+    </script>
+    <script>
+        $("#danmup").DanmuPlayer({
+            src: "level5.mp4",
+            height: "480px", //区域的高度
+            width: "100%" //区域的宽度
+                ,
+            urlToGetDanmu: "",
+            urlToPostDanmu: ""
+        });
+
+        //开启关闭弹幕
+        $("#danmu-close").click(function() {
+            $("#danmu-open").show();
+            $("#danmu-close").hide();
+            $("#danmup-danmu-div").hide();
+        })
+        $("#danmu-open").click(function() {
+            $("#danmu-close").show();
+            $("#danmu-open").hide();
+            $("#danmup-danmu-div").show();
+        })
+
+    </script>
+    <script>
+    +function($,document){
+		/*后台json数据格式*/
+		var $json=[
+				{url:'images/1.jpg',name:'范冰冰'},
+				{url:'images/2.jpg',name:'小S'},
+				{url:'images/3.jpg',name:'大S'},
+				{url:'images/4.jpg',name:'范玮琪'},
+				{url:'images/5.jpg',name:'张韶涵'},
+				{url:'images/6.jpg',name:'孙燕姿'},
+				{url:'images/7.jpg',name:'王心凌'},
+				{url:'images/8.jpg',name:'张靓颖'},
+				{url:'images/9.jpg',name:'李正贤'},
+				{url:'images/10.jpg',name:'she'},
+				{url:'images/11.jpg',name:'田馥甄'},
+				{url:'images/12.jpg',name:'萨顶顶'},
+				{url:'images/12.jpg',name:'ladygaga'}
+		];
+		var tip={
+				count:0
+			};
+		var $lis=$('.blz-photo-wall li');
+		var $BPW=$('.blz-photo-wisher').eq(0);
+		var a=[
+				2,3,4,5,6,11,13,15,16,17,18,19,
+				21,22,26,27,31,33,35,38,
+				41,47,51,53,55,56,57,58,59,
+				60,61,62,63,64,65,66,67,68,70,71,72,73,74,75,78,
+				80,84,88,91,93,95,96,98,99,
+				104,111,113,
+				121,122,123,124,125,126,127,131,133,134,135,136,137,138,139,
+				144,151,153,155,159,
+				161,164,167,171,173,713,175,176,177,178,179,
+				181,182,183,184,185,186,187,191,192,193,194,195,199,
+				204,213,215,219,
+				220,221,222,223,224,225,226,227,228,230,231,232,233,235,236,237,238,239
+		];
+		var a1=a.slice();
+		for(var i=0,j=a.length;i<j;i++){
+			$lis.eq(a[i]).addClass('active');
+		}
+		
+		/*制作随机数*/
+		function makeRandom(n){/*参数n为随机数的上限*/
+			return Math.floor(Math.random()*n);
+		}
+		
+		/*数组自减*/
+		function arrayDecrement(a,index){/*a为目标数组，index为要删除的数组值得索引*/
+			return a1.splice(index,1)
+		}
+		/*插入图片函数*/
+		function insertImage(){
+			var img=new Image();
+			img.src=$json[tip.count].url
+			img.onload=function(){
+				var aRandom=makeRandom(a1.length);
+				var $this=$(this);
+				$lis.eq(a1[aRandom]).html('<div><img src="'+this.src+'"></div>');
+				$BPW.html('<img src="'+this.src+'"><p>'+$json[tip.count].name+'</p><span>刚刚为Ta们购买</span>')
+				setTimeout(function(){
+					$lis.eq(a1[aRandom]).find('div').fadeIn(1000);
+					$BPW.addClass('animate');
+					arrayDecrement(a1,aRandom);
+				},30)
+				tip.count++;
+				if(tip.count<a.length&&tip.count<$json.length){
+					setTimeout(function(){
+						$BPW.removeClass('animate');
+						insertImage();
+					},5000);
+				}
+			}
+		}
+		insertImage();
+	}(window.Zepto||window.jQuery,document);
     </script>
 </body>
 
